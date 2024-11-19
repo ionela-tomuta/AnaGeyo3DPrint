@@ -1,0 +1,33 @@
+﻿@page
+@model AnaGeyo3DPrint.Pages.Gallery.GalleryModel
+@{
+    ViewData["Title"] = "Gallery";
+}
+<h2>Proiectele Tale 3D</h2>
+
+@if (Model.Projects != null && Model.Projects.Any())
+{
+    <div class="row">
+        @foreach (var project in Model.Projects)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="@project.FilePath" class="card-img-top" alt="Project Image" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@project.Name</h5>
+                        <p class="card-text">@project.Description</p>
+                        <p><strong>Material:</strong> @project.Material</p>
+                        <p><strong>Preț:</strong> @project.Price.ToString("C")</p>
+                        <a href="/Gallery/Details?id=@project.Id" class="btn btn-primary">Detalii</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        Nu există proiecte disponibile momentan. <a href="/Gallery/Upload" class="alert-link">Adaugă un proiect nou!</a>
+    </div>
+}

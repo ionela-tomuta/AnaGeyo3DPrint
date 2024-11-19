@@ -1,0 +1,33 @@
+﻿@page
+@model AnaGeyo3DPrint.Orders.ListModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1>Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>ProjectId</th>
+            <th>UserId</th>
+            <th>OrderDate</th>
+            <th>EstimatedCost</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.ProjectId</td>
+                <td>@order.UserId</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.EstimatedCost.ToString("C")</td> <!-- Format cost în moneda locală -->
+                <td>@order.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

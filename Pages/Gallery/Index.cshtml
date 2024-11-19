@@ -1,0 +1,27 @@
+﻿@page
+@model AnaGeyo3DPrint.Gallery.IndexModel
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<h1>Gallery</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>File Path</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model.Projects)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.Description</td>
+                <td>@project.FilePath</td>
+            </tr>
+        }
+    </tbody>
+</table>

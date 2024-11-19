@@ -1,0 +1,14 @@
+﻿@page
+@model AnaGeyo3DPrint.Gallery.DetailsModel
+@{
+    ViewData["Title"] = "Project Details";
+}
+
+<h2>Detalii Proiect</h2>
+
+<div>
+    <h4>@Model.Project.Name</h4>
+    <p>@Model.Project.Description</p>
+    <p>Material: @Model.Project.Material</p>
+    <p>Preț: @Model.Project.Price.ToString("C")</p>
+</div>
